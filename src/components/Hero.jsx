@@ -138,7 +138,7 @@ const Hero = () => {
           <div className="profile-image-wrapper">
             <img
               src="/profile.png"
-              alt="Dr. Mina Maged"
+              alt="Dr. Fatma Elzahraa"
               className="profile-image"
             />
             <div className="profile-ring"></div>
@@ -153,7 +153,7 @@ const Hero = () => {
           animate="visible"
         >
           <motion.h1 className="hero-title" variants={itemVariants}>
-            Dr. Mina Maged
+            Dr. Fatma Elzahraa
           </motion.h1>
           
           <motion.div className="hero-subtitle-wrapper" variants={itemVariants}>

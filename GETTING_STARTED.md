@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - Dr. Mina Maged Portfolio
+# 🚀 Quick Start Guide - Dr. Fatma Elzahraa Portfolio
 
 ## ⚠️ IMPORTANT: Node.js Installation Required
 

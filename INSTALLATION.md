@@ -194,7 +194,7 @@ You need the engine first! 🚗
 Once you have Node.js installed and your site running:
 
 1. **Customize content**
-   - Replace "Dr. Mina Maged" with your info (if needed)
+   - Replace "Dr. Fatma Elzahraa" with your info (if needed)
    - Update social media links
    - Add your real project images
    - Modify bio text

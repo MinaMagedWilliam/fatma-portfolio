@@ -47,7 +47,7 @@ npm run dev
 
 1. **Hero Section**
    - Animated particle background
-   - "Dr. Mina Maged" headline
+   - "Dr. Fatma Elzahraa" headline
    - "Digital Dentist & Dental Motion Designer"
    - Call-to-action buttons
 

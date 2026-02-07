@@ -1,4 +1,4 @@
-# Portfolio Website - Dr. Mina Maged
+# Portfolio Website - Dr. Fatma Elzahraa
 
 Modern, dark-themed portfolio website for a professional dentist specializing in clinical dentistry, dental motion graphics, and digital dentistry.
 
@@ -44,7 +44,7 @@ See **GETTING_STARTED.md** for detailed instructions.
 
 ## Sections
 
-1. **Hero**: Main headline with Dr. Mina Maged's name and tagline
+1. **Hero**: Main headline with Dr. Fatma Elzahraa's name and tagline
 2. **About**: Bio introducing dual expertise
 3. **Portfolio**: Showcase with placeholder images
 4. **Contact**: Form + social media icons
