@@ -28,49 +28,6 @@ const About = () => {
     },
   };
 
-  const skills = [
-    {
-      title: 'Clinical Dentistry',
-      description: 'Expert in advanced dental procedures with a focus on patient care and precision',
-      icon: '🦷',
-      filter: 'clinical',
-      link: '#portfolio',
-    },
-    {
-      title: 'Dental Motion Graphics',
-      description: 'Creating engaging visual content for dental education and patient communication',
-      icon: '🎬',
-      filter: 'motion',
-      link: '#portfolio',
-    },
-    {
-      title: 'Digital Dentistry',
-      description: 'Leveraging cutting-edge technology for diagnosis, treatment planning, and execution',
-      icon: '💻',
-      filter: 'digital',
-      link: '#portfolio',
-    },
-    {
-      title: 'Portfolio Websites',
-      description: 'Custom-built React portfolios showcasing professional work with modern web technologies',
-      icon: '🌐',
-      filter: 'portfolios',
-      link: '#portfolio',
-    },
-  ];
-
-  const handleSkillClick = (filter) => {
-    // Store the filter in sessionStorage
-    sessionStorage.setItem('portfolioFilter', filter);
-    // Navigate to portfolio section
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Dispatch custom event to update portfolio filter
-    window.dispatchEvent(new CustomEvent('filterPortfolio', { detail: filter }));
-  };
-
   return (
     <section id="about" className="about section" ref={ref}>
       <div className="container">
@@ -87,42 +44,14 @@ const About = () => {
 
           <motion.div className="about-intro" variants={itemVariants}>
             <p className="about-text">
-              I'm Dr. Mina Maged, a passionate dentist who bridges the gap between
-              clinical excellence and creative innovation. With expertise in both
-              chairside dentistry and digital motion design, I bring a unique
-              perspective to modern dental practice.
+              I'm Dr. Fatma Elzahraa, a passionate dentist dedicated to providing 
+              exceptional patient care with precision and expertise.
             </p>
             <p className="about-text">
-              My journey combines the precision of science with the artistry of
-              visual storytelling, allowing me to not only provide exceptional
-              patient care but also revolutionize how dental concepts are
-              communicated through engaging motion graphics and digital content.
+              My journey combines the precision of science with a commitment to 
+              excellence in modern dental practice.
             </p>
           </motion.div>
-
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                className="skill-card"
-                variants={itemVariants}
-                whileHover={{
-                  y: -10,
-                  transition: { duration: 0.3 },
-                }}
-                onClick={() => handleSkillClick(skill.filter)}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="skill-icon">{skill.icon}</div>
-                <h3 className="skill-title">{skill.title}</h3>
-                <p className="skill-description">{skill.description}</p>
-                <button className="skill-cta">
-                  View Projects →
-                </button>
-                <div className="skill-glow"></div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>
