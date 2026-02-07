@@ -23,13 +23,8 @@ const AdminDashboard = () => {
     imageId: '',
     galleryFiles: [],
     galleryImages: [],
-    videoUrl: '', // For YouTube/Vimeo links
-    videoFile: null, // For direct video upload
-    videoId: '', // Stored video file ID in Appwrite
-    liveDemo: '', // Live demo URL for portfolio projects
   });
   const [uploading, setUploading] = useState(false);
-  const [videoOption, setVideoOption] = useState('url'); // 'url' or 'upload'
 
   useEffect(() => {
     if (!user) {
@@ -76,17 +71,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleVideoFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Check file size (limit to 100MB)
-      if (file.size > 100 * 1024 * 1024) {
-        alert('Video file is too large. Please upload a file smaller than 100MB.');
-        return;
-      }
-      setFormData(prev => ({ ...prev, videoFile: file }));
-    }
-  };
+
 
   const handleGalleryFilesChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -125,18 +110,11 @@ const AdminDashboard = () => {
     try {
       let imageId = formData.imageId;
       let galleryImages = formData.galleryImages || [];
-      let videoId = formData.videoId;
 
       // Upload main cover image if new file selected
       if (formData.imageFile) {
         const uploadedFile = await appwriteService.uploadFile(formData.imageFile);
         imageId = uploadedFile.$id;
-      }
-
-      // Upload video file if selected
-      if (formData.videoFile) {
-        const uploadedVideo = await appwriteService.uploadFile(formData.videoFile);
-        videoId = uploadedVideo.$id;
       }
 
       // Upload gallery images if new files selected
@@ -157,14 +135,7 @@ const AdminDashboard = () => {
         technologies: formData.technologies.split(',').map(t => t.trim()),
         imageId: imageId,
         galleryImages: galleryImages,
-        videoUrl: formData.videoUrl || '', // YouTube/Vimeo link
-        liveDemo: formData.liveDemo || '', // Live demo URL for portfolio projects
       };
-
-      // Only add videoId if it exists (attribute might not be created yet)
-      if (videoId) {
-        projectData.videoId = videoId;
-      }
 
       if (editingProject) {
         await appwriteService.updateProject(editingProject.$id, projectData);
@@ -190,10 +161,6 @@ const AdminDashboard = () => {
       // Check for specific missing attribute errors
       if (error.message && error.message.includes('categories')) {
         errorMessage = 'Missing "categories" attribute in Appwrite.\n\nPlease add it:\n1. Go to Appwrite Console → Databases → projects\n2. Add Attribute: type String, key "categories", array YES';
-      } else if (error.message && error.message.includes('videoId')) {
-        errorMessage = 'Missing "videoId" attribute in Appwrite.\n\nPlease add it:\n1. Go to Appwrite Console → Databases → projects\n2. Add Attribute: type String, key "videoId", size 255';
-      } else if (error.message && error.message.includes('videoUrl')) {
-        errorMessage = 'Missing "videoUrl" attribute in Appwrite.\n\nPlease add it:\n1. Go to Appwrite Console → Databases → projects\n2. Add Attribute: type String, key "videoUrl", size 500';
       }
       
       alert(errorMessage);
@@ -214,12 +181,7 @@ const AdminDashboard = () => {
       imageId: project.imageId,
       galleryFiles: [],
       galleryImages: project.galleryImages || [],
-      videoUrl: project.videoUrl || '',
-      videoFile: null,
-      videoId: project.videoId || '',
-      liveDemo: project.liveDemo || '', // Live demo URL
     });
-    setVideoOption(project.videoId ? 'upload' : 'url'); // Set option based on existing data
     setShowForm(true);
   };
 
@@ -268,12 +230,7 @@ const AdminDashboard = () => {
       imageId: '',
       galleryFiles: [],
       galleryImages: [],
-      videoUrl: '',
-      videoFile: null,
-      videoId: '',
-      liveDemo: '', // Reset live demo URL
     });
-    setVideoOption('url'); // Reset to URL option
     setEditingProject(null);
     setShowForm(false);
   };
@@ -331,34 +288,58 @@ const AdminDashboard = () => {
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        checked={formData.categories.includes('clinical')}
-                        onChange={() => handleCategoryChange('clinical')}
+                        checked={formData.categories.includes('fixed')}
+                        onChange={() => handleCategoryChange('fixed')}
                       />
-                      <span>Clinical</span>
+                      <span>Fixed</span>
                     </label>
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        checked={formData.categories.includes('motion')}
-                        onChange={() => handleCategoryChange('motion')}
+                        checked={formData.categories.includes('removable')}
+                        onChange={() => handleCategoryChange('removable')}
                       />
-                      <span>Motion Graphics</span>
+                      <span>Removable</span>
                     </label>
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        checked={formData.categories.includes('digital')}
-                        onChange={() => handleCategoryChange('digital')}
+                        checked={formData.categories.includes('surgery')}
+                        onChange={() => handleCategoryChange('surgery')}
                       />
-                      <span>Digital</span>
+                      <span>Surgery</span>
                     </label>
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        checked={formData.categories.includes('portfolios')}
-                        onChange={() => handleCategoryChange('portfolios')}
+                        checked={formData.categories.includes('endo')}
+                        onChange={() => handleCategoryChange('endo')}
                       />
-                      <span>Portfolios</span>
+                      <span>Endo</span>
+                    </label>
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={formData.categories.includes('operative')}
+                        onChange={() => handleCategoryChange('operative')}
+                      />
+                      <span>Operative</span>
+                    </label>
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={formData.categories.includes('pedo')}
+                        onChange={() => handleCategoryChange('pedo')}
+                      />
+                      <span>Pedo</span>
+                    </label>
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={formData.categories.includes('perio')}
+                        onChange={() => handleCategoryChange('perio')}
+                      />
+                      <span>Perio</span>
                     </label>
                   </div>
                   {formData.categories.length === 0 && (
@@ -404,87 +385,6 @@ const AdminDashboard = () => {
                   required
                   placeholder="CAD/CAM, Digital Impressions, 3D Printing"
                 />
-              </div>
-
-              {/* Live Demo URL - for Portfolio Projects */}
-              <div className="form-group">
-                <label htmlFor="liveDemo">Live Demo URL (Optional - for Portfolio websites)</label>
-                <input
-                  type="url"
-                  id="liveDemo"
-                  name="liveDemo"
-                  value={formData.liveDemo}
-                  onChange={handleInputChange}
-                  placeholder="https://example.com or https://example.netlify.app"
-                />
-                <small style={{ color: 'var(--color-text-secondary)', display: 'block', marginTop: '0.5rem' }}>
-                  Add a live demo link for portfolio projects. Visitors can click to test the site!
-                </small>
-              </div>
-
-              {/* Video Section - Choose URL or Upload */}
-              <div className="form-group">
-                <label>
-                  <FaImage /> Video (Optional - Works for all categories)
-                </label>
-                
-                {/* Toggle between URL and Upload */}
-                <div className="video-option-toggle">
-                  <button
-                    type="button"
-                    className={`toggle-btn ${videoOption === 'url' ? 'active' : ''}`}
-                    onClick={() => setVideoOption('url')}
-                  >
-                    📺 YouTube/Vimeo Link
-                  </button>
-                  <button
-                    type="button"
-                    className={`toggle-btn ${videoOption === 'upload' ? 'active' : ''}`}
-                    onClick={() => setVideoOption('upload')}
-                  >
-                    📤 Upload Video File
-                  </button>
-                </div>
-
-                {/* Video URL Input */}
-                {videoOption === 'url' && (
-                  <div className="video-url-section">
-                    <input
-                      type="url"
-                      id="videoUrl"
-                      name="videoUrl"
-                      value={formData.videoUrl}
-                      onChange={handleInputChange}
-                      placeholder="https://www.youtube.com/watch?v=... or https://vimeo.com/..."
-                    />
-                    <small className="image-info">
-                      Paste a YouTube or Vimeo link. Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                    </small>
-                  </div>
-                )}
-
-                {/* Video File Upload */}
-                {videoOption === 'upload' && (
-                  <div className="video-upload-section">
-                    <input
-                      type="file"
-                      id="videoFile"
-                      accept="video/*"
-                      onChange={handleVideoFileChange}
-                    />
-                    {formData.videoFile && (
-                      <div className="file-preview">
-                        <span>✅ {formData.videoFile.name} ({(formData.videoFile.size / (1024 * 1024)).toFixed(2)} MB)</span>
-                      </div>
-                    )}
-                    {formData.videoId && !formData.videoFile && (
-                      <small className="image-info">✅ Video file already uploaded. Upload a new file to replace it.</small>
-                    )}
-                    <small className="image-info">
-                      Upload .mp4, .mov, .avi files (max 100MB). For larger files, use YouTube/Vimeo instead.
-                    </small>
-                  </div>
-                )}
               </div>
 
               <div className="form-group">

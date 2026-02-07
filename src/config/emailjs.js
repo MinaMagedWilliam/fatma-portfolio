@@ -12,7 +12,7 @@ export const emailjsConfig = {
 // 2. Add Email Service:
 //    - Dashboard → Email Services → Add New Service
 //    - Choose Gmail (or your email provider)
-//    - Connect your email: drminamagedwil@gmail.com
+//    - Connect your email: ahmedghareb208@gmail.com
 //    - Copy the Service ID
 // 3. Create Email Template:
 //    - Dashboard → Email Templates → Create New Template

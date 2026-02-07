@@ -78,10 +78,10 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/mina-maged-ab9070188/' },
-    { icon: <FaInstagram />, name: 'Instagram', url: 'https://www.instagram.com/mena_maged_william/' },
-    { icon: <FaFacebook />, name: 'Facebook', url: 'https://www.facebook.com/mena.maged.william' },
+    { icon: <FaInstagram />, name: 'Instagram', url: 'https://www.instagram.com/voidhead.ed/' },
+    { icon: <FaFacebook />, name: 'Facebook', url: 'https://www.facebook.com/fatmaelzahraa.ahmed.39' },
     { icon: <FaYoutube />, name: 'YouTube', url: 'https://www.youtube.com/@dr.minamaged' },
-    { icon: <FaEnvelope />, name: 'Email', url: 'mailto:drminamagedwil@gmail.com' },
+    { icon: <FaEnvelope />, name: 'Email', url: 'mailto:ahmedghareb208@gmail.com' },
   ];
 
   const containerVariants = {
@@ -150,7 +150,7 @@ const Contact = () => {
               <div className="contact-details">
                 <div className="contact-detail-item">
                   <h4 className="detail-label">Email</h4>
-                  <p className="detail-value">drminamagedwil@gmail.com</p>
+                  <p className="detail-value">ahmedghareb208@gmail.com</p>
                 </div>
                 <div className="contact-detail-item">
                   <h4 className="detail-label">Location</h4>
@@ -241,7 +241,7 @@ const Contact = () => {
                   )}
                   {formStatus === 'error' && (
                     <>
-                      ❌ Failed to send message. Please try again or email me directly at drminamagedwil@gmail.com
+                      ❌ Failed to send message. Please try again or email me directly at ahmedghareb208@gmail.com
                     </>
                   )}
                 </motion.div>
@@ -265,7 +265,7 @@ const Contact = () => {
         <p className="footer-text">
           © {new Date().getFullYear()}{' '}
           <a 
-            href="https://www.facebook.com/mena.maged.william" 
+            href="https://www.facebook.com/fatmaelzahraa.ahmed.39" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer-link"

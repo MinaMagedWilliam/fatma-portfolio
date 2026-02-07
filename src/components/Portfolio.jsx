@@ -245,11 +245,14 @@ const Portfolio = () => {
   }, [selectedProject, currentImageIndex]);
 
   const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'clinical', label: 'Clinical' },
-    { id: 'motion', label: 'Motion Graphics' },
-    { id: 'digital', label: 'Digital' },
-    { id: 'portfolios', label: 'Portfolios' },
+    { id: 'all', label: 'All Cases' },
+    { id: 'fixed', label: 'Fixed' },
+    { id: 'removable', label: 'Removable' },
+    { id: 'surgery', label: 'Surgery' },
+    { id: 'endo', label: 'Endo' },
+    { id: 'operative', label: 'Operative' },
+    { id: 'pedo', label: 'Pedo' },
+    { id: 'perio', label: 'Perio' },
   ];
 
   const filteredProjects =
