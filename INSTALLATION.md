@@ -120,7 +120,7 @@ Once running, your portfolio will have:
 **1. Hero Section**
 - Your name in large, gradient text
 - Animated floating particles in background
-- "Digital Dentist & Dental Motion Designer" subtitle
+- "Dentist" subtitle
 - Two call-to-action buttons
 - Scroll indicator
 

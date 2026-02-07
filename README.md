@@ -231,7 +231,7 @@ This project is open source and available for personal use.
 ## 👤 Author
 
 **Dr. Fatma Elzahraa**
-- Digital Dentist & Dental Motion Designer
+- Dentist
 - Merging Science with Creativity
 
 ---

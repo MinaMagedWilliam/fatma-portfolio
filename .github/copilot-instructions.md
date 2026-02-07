@@ -1,54 +1,37 @@
-# Portfolio Website - Dr. Fatma Elzahraa
+---
+description: Instructions for Copilot to follow when generating code in this repository.
+---
 
-Modern, dark-themed portfolio website for a professional dentist specializing in clinical dentistry, dental motion graphics, and digital dentistry.
+### ✅ Task: Interactive Task Loop with User Feedback
 
-## Project Setup
+1. **Check if `userinput.py` exists** in the root directory.
 
-- [x] Create copilot-instructions.md file
-- [x] Scaffold React project with Vite
-- [x] Create project structure and components
-- [x] Add styling and animations
-- [x] Configure for Netlify deployment
-- [ ] Install Node.js (REQUIRED - see GETTING_STARTED.md)
-- [ ] Install dependencies and compile
-- [ ] Create development task and launch
-- [x] Finalize documentation
+   - If it doesn't exist, create it with the following content:
 
-## ⚠️ IMPORTANT: Node.js Required
+     ```python
+     # userinput.py
+     user_input = input("prompt: ")
+     ```
 
-Before you can run this project, you must install Node.js:
+2. **Main Workflow**:
 
-1. Download from: https://nodejs.org/ (get the LTS version)
-2. Install Node.js on your system
-3. Close and reopen VS Code
-4. Run: `npm install`
-5. Run: `npm run dev`
+   - Perform your assigned tasks.
 
-See **GETTING_STARTED.md** for detailed instructions.
+   - Run:
 
-## Tech Stack
+     ```bash
+     python userinput.py
+     ```
 
-- React 18
-- Vite (build tool)
-- CSS Modules / Styled Components
-- Framer Motion (animations)
-- React Icons (social media icons)
+   - The terminal should be opened in the chat window itself.
 
-## Design Specifications
+   - Read the user's input.
 
-- **Theme**: Dark mode, sleek, futuristic
-- **Colors**: Deep charcoal/black base, cyan/silver accents
-- **Typography**: Clean sans-serif, elegant hierarchy
-- **Responsive**: Mobile and desktop support
-- **Interactive**: Smooth scroll animations, hover effects
+   - Based on the input, perform the next set of tasks.
 
-## Sections
+   - Repeat the process.
 
-1. **Hero**: Main headline with Dr. Fatma Elzahraa's name and tagline
-2. **About**: Bio introducing dual expertise
-3. **Portfolio**: Showcase with placeholder images
-4. **Contact**: Form + social media icons
+3. **Exit Condition**:
 
-## Deployment
+   - If the user enters `"stop"` when prompted, exit the loop and terminate the process.
 
-Configured for Netlify deployment with netlify.toml

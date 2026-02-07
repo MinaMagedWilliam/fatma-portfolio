@@ -158,7 +158,7 @@ const Hero = () => {
           
           <motion.div className="hero-subtitle-wrapper" variants={itemVariants}>
             <h2 className="hero-subtitle">
-              Digital Dentist & Dental Motion Designer
+              Dentist
             </h2>
           </motion.div>
           
